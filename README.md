@@ -7,6 +7,7 @@
 * [Cara Menggunakan Laravel Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-menggunakan-laravel-livewire)
 * [Cara Membuat Componet Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-membuat-componet-livewire)
 * [Cara Membuat Properties Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-membuat-properties-livewire)
+* [Binding Nested Data](https://github.com/mhdky/belajar_laravel_livewire#binding-nested-data)
 
 
 ## Apa Itu Laravel Livewire
@@ -79,8 +80,39 @@ php artisan livewire:delete NamaComponet
 ```
 public $nama = 'Muhammad Rizki';
 ```
-3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas
+3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas.
 4. Tulis kata-kata dan masukan nilai dari properti $nama
 ```
 Halo nama saya adalah {{ $nama }}
+```
+
+
+## Binding Nested Data
+1. Buka folder ` Http/Livewire/NamaComponent `
+2. Tambahkan method public dan nama properti yang diinginkan, misalnya
+```
+class PostForm extends Component
+{
+    public $name = '';
+
+    public function render()
+    {
+        return view('livewire.post-form');
+    }
+}
+```
+
+3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas
+4. Buat input type:text dan tambahkan wire:model
+```
+<input type="text" wire:model="name">
+```
+5. Tampung data yang diinputkan
+```
+<p>Halo nama saya adalah {{ $name }}</p>
+```
+
+```
+Catatan:
+Data yang disimpan di properti publik dapat dilihat oleh JavaScript front-end. Oleh karena itu,  TIDAK HARUS menyimpan data sensitif di dalamnya.
 ```
