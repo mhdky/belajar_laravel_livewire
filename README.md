@@ -25,9 +25,12 @@ Laravel Livewire dicitakan oleh Calep Porzio yang juga merupakan pencipta dari A
 ## Cara Menggunakan Laravel Livewire
 1. Install project laravel
 2. Install Livewire
+``` 
+composer required livewire/livewire 
+```
 
-``` composer required livewire/livewire ```
-
-3. ``` php artisan serve ```
+3. ``` 
+php artisan serve 
+```
 4. Tambahkan pada head ` @livewireStyles `
 5. Tambahkan di atas tutup body ` @livewireScripts `
