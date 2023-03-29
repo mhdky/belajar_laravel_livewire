@@ -6,6 +6,7 @@
 * [Laravel Liviwire Untuk Fullstack Developer](https://github.com/mhdky/belajar_laravel_livewire#laravel-liviwire-untuk-fullstack-developer)
 * [Cara Menggunakan Laravel Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-menggunakan-laravel-livewire)
 * [Cara Membuat Componet Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-membuat-componet-livewire)
+* [Cara Membuat Properties Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-membuat-properties-livewire)
 
 
 ## Apa Itu Laravel Livewire
@@ -69,4 +70,17 @@ php artisan livewire:make NamaComponet
 ### Cara Hapus Component
 ``` 
 php artisan livewire:delete NamaComponet
+```
+
+
+## Cara Membuat Properties Livewire
+1. Masuk ke dalam folder ` Http/Livewire/NamaComponent `
+2. Tambahkan properti misalnya nama
+```
+public $nama = 'Muhammad Rizki';
+```
+3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas
+4. Tulis kata-kata dan masukan nilai dari properti $nama
+```
+Halo nama saya adalah {{ $nama }}
 ```
