@@ -141,9 +141,9 @@ class PostForm extends Component
 4. Tambahkan kode di bawah ini:
 ```
 @if ($showPass == 'show')
-    <input type="text" wire:model="name">
+    <input type="text" wire:model="password">
 @else
-    <input type="password" wire:model="name">
+    <input type="password" wire:model="password">
 @endif
 
 <input type="checkbox" wire:model="showPass" value="show">
