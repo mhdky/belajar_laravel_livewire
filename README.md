@@ -5,6 +5,7 @@
 * [Apa Itu Laravel Livewire](https://github.com/mhdky/belajar_laravel_livewire#apa-itu-laravel-livewire)
 * [Laravel Liviwire Untuk Fullstack Developer](https://github.com/mhdky/belajar_laravel_livewire#laravel-liviwire-untuk-fullstack-developer)
 * [Cara Menggunakan Laravel Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-menggunakan-laravel-livewire)
+* [Cara Membuat Componet Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-membuat-componet-livewire)
 
 
 ## Apa Itu Laravel Livewire
@@ -14,7 +15,7 @@ Sumber Youtube: [Ferry Dermawan](https://youtu.be/ia3QN9ud-yI?list=PL-X81XM3cE18
 
 
 
-## Laravel Liviwire Untuk Fullstack Developer
+## Laravel Livewire Untuk Fullstack Developer
 Laravel Livewire diperuntukan untuk seorang Fullstack Developer yang menyentuh Frontend dan Backend hanya dengan satu bahasa pemerogramman.
 
 Sumber Youtube: [Ferry Dermawan](https://youtu.be/ia3QN9ud-yI?list=PL-X81XM3cE187IIB2_RM6eNjnsYkwG8tW&t=23)
@@ -35,3 +36,37 @@ php artisan serve
 ```
 4. Tambahkan pada head ` @livewireStyles `
 5. Tambahkan di atas tutup body ` @livewireScripts `
+
+
+## Cara Membuat Componet Livewire
+Syarat penulisan component bisa mengikuti seperti di bawah ini:
+```
+php artisan make:livewire ShowPosts
+```
+atau bisa seperti di bawah ini
+
+```
+php artisan make:livewire show-posts
+```
+
+Bisa juga memasukan ke dalam subfolder seperti di bawah ini
+
+```
+php artisan make:livewire Post\\Show
+php artisan make:livewire Post/Show
+php artisan make:livewire post.show
+```
+
+Sumber: [https://laravel-livewire.com/docs/2.x/making-components](https://laravel-livewire.com/docs/2.x/making-components)
+
+1. Buat component 
+``` 
+php artisan livewire:make NamaComponet
+```
+
+2. Panggil componet/template livewire dengan cara ` @livewire('nama-template') `
+
+### Cara Hapus Component
+``` 
+php artisan livewire:delete NamaComponet
+```
