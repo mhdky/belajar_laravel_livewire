@@ -8,6 +8,7 @@
 * [Cara Membuat Componet Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-membuat-componet-livewire)
 * [Cara Membuat Properties Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-membuat-properties-livewire)
 * [Binding Nested Data](https://github.com/mhdky/belajar_laravel_livewire#binding-nested-data)
+* [Show dan Hidden Password](https://github.com/mhdky/belajar_laravel_livewire#show-dan-hidden-password)
 
 
 ## Apa Itu Laravel Livewire
@@ -102,7 +103,7 @@ class PostForm extends Component
 }
 ```
 
-3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas
+3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas.
 4. Buat input type:text dan tambahkan wire:model
 ```
 <input type="text" wire:model="name">
@@ -112,7 +113,38 @@ class PostForm extends Component
 <p>Halo nama saya adalah {{ $name }}</p>
 ```
 
+Sumber Youtube: [Ferry Dermawan](https://youtu.be/k7xJ_qOuiJE?list=PL-X81XM3cE187IIB2_RM6eNjnsYkwG8tW&t=156)
+
 ```
 Catatan:
 Data yang disimpan di properti publik dapat dilihat oleh JavaScript front-end. Oleh karena itu,  TIDAK HARUS menyimpan data sensitif di dalamnya.
+```
+
+
+
+## Show dan Hidden Password
+1. Buka folder ` Http/Livewire/NamaComponent `
+2. Tambahkan method public dan nama properti seperti di bawah ini
+```
+class PostForm extends Component
+{
+    public $password = '';
+    public $showPass = false;
+
+    public function render()
+    {
+        return view('livewire.post-form');
+    }
+}
+```
+3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas.
+4. Tambahkan kode di bawah ini:
+```
+@if ($showPass == 'show')
+    <input type="text" wire:model="name">
+@else
+    <input type="password" wire:model="name">
+@endif
+
+<input type="checkbox" wire:model="showPass" value="show">
 ```
