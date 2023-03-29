@@ -29,7 +29,8 @@ Laravel Livewire dicitakan oleh Calep Porzio yang juga merupakan pencipta dari A
 composer required livewire/livewire 
 ```
 
-3. ``` 
+3. Jalankan local server
+``` 
 php artisan serve 
 ```
 4. Tambahkan pada head ` @livewireStyles `
