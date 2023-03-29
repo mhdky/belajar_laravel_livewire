@@ -2,8 +2,8 @@
 
 ### Table of Content
 
-[Apa Itu Laravel Livewire](https://github.com/mhdky/belajar_laravel_livewire#apa-itu-laravel-livewire)
-[Laravel Liviwire Untuk Fullstack Developer](https://github.com/mhdky/belajar_laravel_livewire#laravel-liviwire-untuk-fullstack-developer)
+⋅⋅* [Apa Itu Laravel Livewire](https://github.com/mhdky/belajar_laravel_livewire#apa-itu-laravel-livewire)
+⋅⋅* [Laravel Liviwire Untuk Fullstack Developer](https://github.com/mhdky/belajar_laravel_livewire#laravel-liviwire-untuk-fullstack-developer)
 
 
 ## Apa Itu Laravel Livewire
