@@ -78,12 +78,12 @@ php artisan livewire:delete NamaComponet
 ## Cara Membuat Properties Livewire
 1. Masuk ke dalam folder ` Http/Livewire/NamaComponent `
 2. Tambahkan properti misalnya nama
-```
+```javascript
 public $nama = 'Muhammad Rizki';
 ```
 3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas.
 4. Tulis kata-kata dan masukan nilai dari properti $nama
-```
+```javascript
 Halo nama saya adalah {{ $nama }}
 ```
 
@@ -91,7 +91,7 @@ Halo nama saya adalah {{ $nama }}
 ## Binding Nested Data
 1. Buka folder ` Http/Livewire/NamaComponent `
 2. Tambahkan method public dan nama properti yang diinginkan, misalnya
-```
+```javascript
 class PostForm extends Component
 {
     public $name = '';
@@ -105,11 +105,11 @@ class PostForm extends Component
 
 3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas.
 4. Buat input type:text dan tambahkan wire:model
-```
+```javascript
 <input type="text" wire:model="name">
 ```
 5. Tampung data yang diinputkan
-```
+```javascript
 <p>Halo nama saya adalah {{ $name }}</p>
 ```
 
@@ -125,7 +125,7 @@ Data yang disimpan di properti publik dapat dilihat oleh JavaScript front-end. O
 ## Show dan Hidden Password
 1. Buka folder ` Http/Livewire/NamaComponent `
 2. Tambahkan method public dan nama properti seperti di bawah ini
-```
+```javascript
 class PostForm extends Component
 {
     public $password = '';
@@ -139,7 +139,7 @@ class PostForm extends Component
 ```
 3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas.
 4. Tambahkan kode di bawah ini:
-```
+```javascript
 @if ($showPass == 'show')
     <input type="text" wire:model="password">
 @else
