@@ -9,6 +9,7 @@
 * [Cara Membuat Properties Livewire](https://github.com/mhdky/belajar_laravel_livewire#cara-membuat-properties-livewire)
 * [Binding Nested Data](https://github.com/mhdky/belajar_laravel_livewire#binding-nested-data)
 * [Show dan Hidden Password](https://github.com/mhdky/belajar_laravel_livewire#show-dan-hidden-password)
+* [Action Counter Tambah Barang](https://github.com/mhdky/belajar_laravel_livewire#action-counter-tambah-barang)
 
 
 ## Apa Itu Laravel Livewire
@@ -148,3 +149,38 @@ class PostForm extends Component
 
 <input type="checkbox" wire:model="showPass" value="show">
 ```
+
+Sumber Youtube: [Ferry Dermawan](https://youtu.be/k7xJ_qOuiJE)
+
+
+
+## Action Counter Tambah Barang
+### Cara Membuat Counter Tambah Barang
+1. Buat sebuah input lalu tambahkan wire model
+```javascript
+<input type="number" wire:model="keranjang" class="mx-5">
+```
+2. Buat sebuah button minus lalu tambahkan wire click
+```javascript
+<button type="submit" {{ ($keranjang <=  0 ? 'disabled' : '') }} class="bg-zinc-200 w-9 h-9 flex justify-center items-center rounded-md text-xl leading-none {{ ($keranjang <=  0 ? 'opacity-50' : '') }}" wire:click="kurang">-</button>
+```
+3. Buat sebuah button plus lalu tambahkan wire click
+```javascript
+<button type="submit" {{ ($keranjang >= 5 ? 'disabled' : '') }} class="bg-zinc-200 w-9 h-9 flex justify-center items-center rounded-md text-xl leading-none {{ ($keranjang >= 5 ? 'opacity-50' : '') }}" wire:click="tambah">+</button>
+```
+4. Buka folder ` Http/Livewire/NamaComponent `
+5. Tambahkan code dibawah ini, sesuaikan dengan nama wire model dan wire click yang ada pada template sebelumnya
+```javascript
+// counter tambah barang
+public $keranjang = 0;
+// tambah
+public function tambah() {
+    $this->keranjang++;
+}
+// kurang
+public function kurang() {
+    $this->keranjang--;
+}
+```
+
+Sumber Youtube: [Ferry Dermawan](https://youtu.be/VzlwohCee4M)
