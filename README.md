@@ -108,11 +108,11 @@ class PostForm extends Component
 
 3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas.
 4. Buat input type:text dan tambahkan wire:model
-```javascript
+```html
 <input type="text" wire:model="name">
 ```
 5. Tampung data yang diinputkan
-```javascript
+```html
 <p>Halo nama saya adalah {{ $name }}</p>
 ```
 
@@ -142,7 +142,7 @@ class PostForm extends Component
 ```
 3. Masuk ke dalam folder ` resorces/views/NamaTemplate ` sesuaikan dengan nama component yang ada di atas.
 4. Tambahkan kode di bawah ini:
-```javascript
+```html
 @if ($showPass == 'show')
     <input type="text" wire:model="password">
 @else
@@ -159,15 +159,15 @@ Sumber Youtube: [Ferry Dermawan](https://youtu.be/k7xJ_qOuiJE)
 ## Action Counter Tambah Barang
 ### Cara Membuat Counter Tambah Barang
 1. Buat sebuah input lalu tambahkan wire model
-```javascript
+```html
 <input type="number" wire:model="keranjang" class="mx-5">
 ```
 2. Buat sebuah button minus lalu tambahkan wire click
-```javascript
+```html
 <button type="submit" {{ ($keranjang <=  0 ? 'disabled' : '') }} class="bg-zinc-200 w-9 h-9 flex justify-center items-center rounded-md text-xl leading-none {{ ($keranjang <=  0 ? 'opacity-50' : '') }}" wire:click="kurang">-</button>
 ```
 3. Buat sebuah button plus lalu tambahkan wire click
-```javascript
+```html
 <button type="submit" {{ ($keranjang >= 5 ? 'disabled' : '') }} class="bg-zinc-200 w-9 h-9 flex justify-center items-center rounded-md text-xl leading-none {{ ($keranjang >= 5 ? 'opacity-50' : '') }}" wire:click="tambah">+</button>
 ```
 4. Buka folder ` Http/Livewire/NamaComponent `
@@ -196,7 +196,7 @@ Sumber Youtube: [Ferry Dermawan](https://youtu.be/VzlwohCee4M)
 php artisan make:livewire post.CreatePost
 ```
 3. Buka file create-post yang ada di ` resorces/view/livewire/post/create-post.blade.php `. Buat kode seperti di bawah ini dan tambahkan wire:submit.prevent pada form dan wire:model pada input 
-```javascript
+```html
 <form autocomplete="off" wire:submit.prevent="store">
     {{-- title --}}
     <label for="title">Title</label>
@@ -221,7 +221,7 @@ php artisan make:livewire post.TablePost
 ```
 
 5. Buka file table-post yang ada di ` resorces/view/livewire/post/table-post.blade.php `. Buat kode seperti di bawah ini dan tambahkan foreach untuk mengambil seluruh data dari database 
-```javascrit
+```html
 <div>
     <table>
         <tr>
