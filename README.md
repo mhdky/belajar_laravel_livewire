@@ -10,6 +10,8 @@
 * [Binding Nested Data](https://github.com/mhdky/belajar_laravel_livewire#binding-nested-data)
 * [Show dan Hidden Password](https://github.com/mhdky/belajar_laravel_livewire#show-dan-hidden-password)
 * [Action Counter Tambah Barang](https://github.com/mhdky/belajar_laravel_livewire#action-counter-tambah-barang)
+* [Creat Data](https://github.com/mhdky/belajar_laravel_livewire#creat-data)
+
 
 
 ## Apa Itu Laravel Livewire
@@ -184,3 +186,107 @@ public function kurang() {
 ```
 
 Sumber Youtube: [Ferry Dermawan](https://youtu.be/VzlwohCee4M)
+
+
+
+## Creat Data
+1. Buat file blade post lalu tambahkan ` @livewire('post.table-post') ` dan ` @livewire('post.create-post') `
+2. Buat component yang nantinya di dalamnya terdapat form  dan masukan ke dalam folder post
+```
+php artisan make:livewire post.CreatePost
+```
+3. Buka file create-post yang ada di ` resorces/view/livewire/post/create-post.blade.php `. Buat kode seperti di bawah ini dan tambahkan wire:submit.prevent pada form dan wire:model pada input 
+```javascript
+<form autocomplete="off" wire:submit.prevent="store">
+    {{-- title --}}
+    <label for="title">Title</label>
+    <input type="text" wire:model="title" id="title">
+    @error('title')
+        <p>{{ $message }}</p>
+    @enderror
+
+    {{-- author --}}
+    <label for="author" class="mb-1 mt-3">Author</label>
+    <input type="text" wire:model="author" id="author">
+    @error('author')
+        <p>{{ $message }}</p>
+    @enderror
+
+    <div><button type="submit">Simpan</button></div>
+</form>
+```
+4. Buat component yang nantinya di dalamnya terdapat table untuk menampung data dari post dan masukan ke dalam folder post
+```
+php artisan make:livewire post.TablePost
+```
+
+5. Buka file table-post yang ada di ` resorces/view/livewire/post/table-post.blade.php `. Buat kode seperti di bawah ini dan tambahkan foreach untuk mengambil seluruh data dari database 
+```javascrit
+<div>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Title</th=>
+            <th>Author</th=>
+            <th>Action</th=>
+        </tr>
+        @foreach ($posts as $post)
+            <tr>
+                <td>{{ $loop->iteration }}</td=>
+                <td>{{ $post->title }}</td=>
+                <td>{{ $post->author }}</td=>
+                <td>Edit</td=>
+                <td>Delete</td=>
+            </tr>
+        @endforeach
+    </table>
+</div>
+```
+
+6. Masuk ke dalam file CreatePost yang ada di ` app/http/Livewire/Post.CreatePost `
+7. Tambahkan code di bawah ini
+```javascript
+public $title;
+public $author;
+
+protected $rules = [
+    'title' => 'required|min:3|max:255',
+    'author' => 'required|min:3|max:255'
+];
+
+public function store() {
+    $this->validate();
+
+    Post::create([
+        'title' => $this->title,
+        'author' => $this->author
+    ]);
+
+    $this->title = Null;
+    $this->author = Null;
+
+    // no refresh
+    // sumber youtube :https://youtu.be/jd-K_z0z3C4?list=LL&t=586
+    $this->emit('createPost');
+
+    session()->flash('ok', 'Postingan baru telah ditambahkan');
+}
+```
+
+8. Masuk ke dalam file TablePost yang ada di ` app/http/Livewire/Post.TablePost `
+9. Lalu tambahkan kode di bawah ini
+```javascript
+// sumber youtube :https://youtu.be/jd-K_z0z3C4?list=LL&t=586
+protected $listeners = [
+    'createPost' => '$refresh'
+];
+
+public function render()
+{
+    return view('livewire.post.table-post', [
+        'posts' => Post::latest()->get()
+    ]);
+}
+```
+
+Sumber Youtube: [Ferry Dermawan](https://youtu.be/2jyLnvbxxEg)
